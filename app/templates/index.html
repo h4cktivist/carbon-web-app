@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Карбон</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Введите запрос и загрузите файл</h1>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul style="color: green;">
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+    <form method="post" action="{{ url_for('main.process_request') }}" enctype="multipart/form-data">
+        <label>
+            <textarea type="text" name="request" placeholder="Введите запрос" required></textarea><br>
+        </label>
+        <input type="file" name="file" required><br><br>
+        <input type="submit" value="Отправить">
+    </form>
+</body>
+</html>

@@ -15,10 +15,14 @@ def index():
 def process_request():
     file = request.files['file']
 
+    if file.filename == '':
+        response = make_response(request.form['request'])
+        return render_template('response.html', response=response)
+
     if file and not allowed_file(file.filename):
         flash('Недопустимый формат файла')
         return redirect(url_for('main.index'))
     else:
         saved_filename = save_file(file)
-        response = make_response(saved_filename, request.form['request'])
+        response = make_response(request.form['request'], filename=saved_filename)
         return render_template('response.html', response=response)

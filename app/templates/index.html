@@ -1,27 +1,55 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <title>Карбон</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-</head>
-<body>
-    <h1>Введите запрос и загрузите файл</h1>
-    {% with messages = get_flashed_messages() %}
-        {% if messages %}
-            <ul style="color: green;">
-                {% for message in messages %}
-                    <li>{{ message }}</li>
-                {% endfor %}
-            </ul>
-        {% endif %}
-    {% endwith %}
-    <form method="post" action="{{ url_for('main.process_request') }}" enctype="multipart/form-data">
-        <label>
-            <textarea type="text" name="request" placeholder="Введите запрос" required></textarea><br>
-        </label>
-        <input type="file" name="file" required><br><br>
-        <input type="submit" value="Отправить">
-    </form>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Система оценки климатических рисков</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
+  </head>
+
+  <body>
+    <header class="header">
+      <a href="https://carbon-polygons.ru/" target="_blank"
+        ><img class="logo" src="{{ url_for('static', filename='images/logo.png') }}" alt="Логотип"
+      /></a>
+    </header>
+
+    <section class="main">
+      <div class="main_text">
+        <h1 class="welcome">
+          Добро пожаловать в систему оценки климатических рисков!
+        </h1>
+        <p class="info">
+          Для получения адаптационных мероприятий и рекомендаций прикрепите
+          отчет - это может занять время.
+        </p>
+      </div>
+
+      <form method="post" action="{{ url_for('main.process_request') }}" enctype="multipart/form-data">
+      <div class="main_input">
+        <textarea
+          rows="3"
+          class="input_prompt"
+          placeholder="Введите запрос"
+          name="request"
+        ></textarea>
+        <div class="bottom_panel">
+          <div>
+            <input type="file" id="fileInput" name="file" />
+            <label for="fileInput"
+              ><img class="clip" src="{{ url_for('static', filename='icons/clip.svg') }}" alt="Прикрепить файл"
+            /></label>
+          </div>
+          <div class="send">
+              <button type="submit" class="send-button">
+                <img class="arrow" src="{{ url_for('static', filename='icons/arrow.svg') }}" alt="Отправить" />
+              </button>
+          </div>
+        </div>
+      </div>
+      </form>
+    </section>
+    <script src="{{ url_for('static', filename='scripts/index.js') }}"></script>
+  </body>
 </html>

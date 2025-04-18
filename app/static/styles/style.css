@@ -1,0 +1,150 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap");
+
+html {
+  font-family: "Inter", sans-serif;
+  color: #383838;
+  width: 100%;
+  height: 100%;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+a,
+ul,
+li {
+  padding: 0;
+  margin: 0;
+}
+
+.header {
+  width: 100%;
+  height: auto;
+  padding-left: 20px;
+  padding-top: 15px;
+  position: fixed;
+}
+
+.logo {
+  width: 350px;
+}
+
+.main {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  row-gap: 60px;
+}
+
+.main_text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  row-gap: 30px;
+}
+
+.welcome {
+  font-weight: 500;
+  font-size: 26px;
+  letter-spacing: 3px;
+  text-align: center;
+  width: 100%;
+}
+
+.info {
+  font-weight: 300;
+  font-size: 18px;
+  text-align: center;
+  width: 650px;
+}
+
+.main_input {
+  width: 900px;
+  height: auto;
+  box-shadow: 0px 2px 7px 0px rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  flex-direction: column;
+  border-radius: 15px;
+}
+
+.input_prompt {
+  width: 100%;
+  height: 100px;
+  border: none;
+  outline: none;
+  resize: none;
+  background-color: transparent;
+  padding: 15px 20px;
+  font-size: 18px;
+  font-weight: 300;
+  font-family: "Inter", sans-serif;
+  line-height: 30px;
+}
+
+.bottom_panel {
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+}
+
+#fileInput {
+  display: none;
+}
+
+.clip {
+  width: auto;
+  height: 25px;
+  cursor: pointer;
+}
+
+.arrow {
+    width: auto;
+    height: 20px;
+}
+
+.send {
+  width: 40px;
+  height: 40px;
+  background-color: #515975;
+  border: none;
+  box-shadow: none;
+  border-radius: 50px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.send-button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}

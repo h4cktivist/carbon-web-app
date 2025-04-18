@@ -21,6 +21,9 @@ def process_data_from_file(filename: str) -> str:
     return f'Какие-то данные из {filename}'
 
 
-def make_response(filename: str, request: str) -> str:
-    data = process_data_from_file(filename)
+def make_response(request: str, filename=None) -> str:
+    if filename:
+        data = process_data_from_file(filename)
+    else:
+        data = ''
     return f'Какой-то вывод по запросу {request} на основе {data}'

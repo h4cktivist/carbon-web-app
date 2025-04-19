@@ -53,7 +53,7 @@ def get_index_for_session(session_id):
             storage_global = StorageContext.from_defaults(persist_dir=global_storage_dir)
 
             index_global = load_index_from_storage(storage_global)
-            index_user = load_index_from_storage(storage_global)
+            index_user = load_index_from_storage(storage_context)
             graph = ComposableGraph.from_indices(
                 VectorStoreIndex,
                 [index_global, index_user],

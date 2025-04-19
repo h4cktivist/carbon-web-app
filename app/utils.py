@@ -31,7 +31,8 @@ def load_document_and_create_index(session_id, file_path):
     if session_id in session_indices:
         index = session_indices[session_id]
     else:
-        documents = SimpleDirectoryReader(input_files=[file_path]).load_data()
+        documents = SimpleDirectoryReader(input_files=[current_app.config['GLOBAL_DOC_FILEPATH'],
+                                                       file_path]).load_data()
         index = VectorStoreIndex.from_documents(documents)
 
         session_storage_dir = os.path.join(current_app.config['UPLOAD_FOLDER'], session_id)
@@ -46,21 +47,10 @@ def get_index_for_session(session_id):
         return session_indices[session_id]
     else:
         session_storage_dir = os.path.join(current_app.config['UPLOAD_FOLDER'], session_id)
-        global_storage_dir = os.path.join(current_app.config['UPLOAD_FOLDER'], 'global')
         if os.path.exists(session_storage_dir):
             print(f"Загружаем индекс с диска для сессии: {session_id}")
             storage_context = StorageContext.from_defaults(persist_dir=session_storage_dir)
-            storage_global = StorageContext.from_defaults(persist_dir=global_storage_dir)
-
-            index_global = load_index_from_storage(storage_global)
-            index_user = load_index_from_storage(storage_context)
-            graph = ComposableGraph.from_indices(
-                VectorStoreIndex,
-                [index_global, index_user],
-                index_summaries=[index_global.summary, index_user.summary]
-            )
-
-            index = graph
+            index = load_index_from_storage(storage_context)
             session_indices[session_id] = index
             return index
         else:

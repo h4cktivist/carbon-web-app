@@ -11,3 +11,4 @@ class Config:
     LLM_PROVIDER_URL = os.getenv('LLM_PROVIDER_URL')
     LLM_API_KEY = os.getenv('LLM_API_KEY')
     LLM_NAME = os.getenv('LLM_NAME')
+    GLOBAL_DOC_FILEPATH = os.getenv('GLOBAL_DOC_FILEPATH')

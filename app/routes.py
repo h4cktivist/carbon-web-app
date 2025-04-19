@@ -19,7 +19,6 @@ def process_request():
 
     if file.filename == '':
         response = make_response(session['session_id'], request.form['request'])
-        return response
 
     if file and not allowed_file(file.filename):
         return {'error': 'Недопустимый формат файла'}
@@ -27,4 +26,4 @@ def process_request():
         saved_filename = save_file(file)
         response = make_response(session['session_id'], request.form['request'],
                                  filename=saved_filename)
-        return response
+    return render_template('response.html', response=response['response'])

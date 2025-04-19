@@ -32,6 +32,7 @@ ul,
 li {
   padding: 0;
   margin: 0;
+  color: black;
 }
 
 .header {
@@ -125,8 +126,8 @@ li {
 }
 
 .arrow {
-    width: auto;
-    height: 20px;
+  width: auto;
+  height: 20px;
 }
 
 .send {
@@ -147,4 +148,17 @@ li {
   border: none;
   padding: 0;
   cursor: pointer;
+}
+
+.main_input2 {
+  width: 900px;
+  height: 250px;
+  box-shadow: 0px 2px 7px 0px rgba(0, 0, 0, 0.25);
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  flex-direction: column;
+  border-radius: 15px;
 }

@@ -1,15 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Карбон</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-</head>
-<body>
-    <h1>Результат:</h1>
-    {{ response }}
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <br>
-    <a href="{{ url_for('main.index') }}">Назад</a>
-</body>
+    <title>Система оценки климатических рисков</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}" />
+  </head>
+
+  <body>
+    <header class="header">
+      <a href="https://carbon-polygons.ru/" target="_blank"
+        ><img
+          class="logo"
+          src="{{ url_for('static', filename='images/logo.png') }}"
+          alt="Логотип"
+      /></a>
+    </header>
+
+    <section class="main">
+      <div class="main_text">
+        <h1 class="welcome">Адаптационные планы и мероприятия</h1>
+        <div class="main_input2">
+          <p class="result">{{ response }}</p>
+        </div>
+        <a href="{{ url_for('main.index') }}">Назад</a>
+      </div>
+    </section>
+  </body>
 </html>
